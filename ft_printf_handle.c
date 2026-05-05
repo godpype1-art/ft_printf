@@ -6,7 +6,7 @@
 /*   By: falves-e <falves-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 17:32:18 by falves-e          #+#    #+#             */
-/*   Updated: 2026/05/04 18:18:17 by falves-e         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:09:21 by falves-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	handle_string(va_list *args)
 	char	*str;
 
 	str = (char *)va_arg(*args, char *);
+	if (str == NULL)
+		str = "(null)";
 	ft_putstr_fd(str, 1);
 	return(ft_strlen(str));
 }
@@ -34,21 +36,18 @@ int	handle_int(va_list *args)
 {
 	int		i;
 	char	*str;
+	int		len;
 	
 	i = va_arg(*args, int);
-	str = itoa(i);
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
-}
-
-
-int	handle_unsigned(va_list *args)
-{
-	unsigned int	i;
-	char			*str;
-	
-	i = va_arg(*args, unsigned int);
 	str = ft_itoa(i);
 	ft_putstr_fd(str, 1);
-	return(ft_strlen(str));
+	len = ft_strlen(str);
+	free(str);
+	return (len);
+}
+
+int	handle_percent(void)
+{
+	write(1, "%", 1);
+	return(1);
 }

@@ -6,7 +6,7 @@
 /*   By: falves-e <falves-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 11:55:31 by falves-e          #+#    #+#             */
-/*   Updated: 2026/05/04 18:09:58 by falves-e         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:15:30 by falves-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ static int	handle_flag(const char *format, va_list *args, int *count)
 {
 	if (*format == 'c')
 		*count += handle_char(args);
-	if (*format == 's')
+	else if (*format == 's')
 		*count += handle_string(args);
-	if (*format == 'p')
+	else if (*format == 'p')
 		*count += handle_pointer(args);
-	if (*format == 'd' || *format == 'i')
+	else if (*format == 'd' || *format == 'i')
 		*count += handle_int(args);
-	if (*format == 'u')
+	else if (*format == 'u')
 		*count += handle_unsigned(args);
-	if (*format == 'x')
+	else if (*format == 'x')
 		*count += handle_hex_lower(args);
-	if (*format == 'X')
+	else if (*format == 'X')
 		*count += handle_hex_upper(args);
-	if (*format == '%')
-		*count += handle_percent(args);
+	else if (*format == '%')
+		*count += handle_percent();
 	return (1);
 }
 
@@ -58,7 +58,8 @@ int	ft_printf(const char *format, ...)
 }
 int main(void)
 {
-	//ft_printf("%c", 'c');
-	printf("%d\n", ft_printf("%c\n", 'c'));
+	int i = 7574846;
+	printf("%d\n", printf("flag = %X\n", i));
+	printf("%d\n", ft_printf("flag = %X\n", i));
 	return 0;
 }

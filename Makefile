@@ -1,0 +1,33 @@
+NAME = libftprintf.a
+LIB = libft/libft.a
+
+CC = cc
+FLAGS = -Wall -Wextra -Werror -g -Ilibft
+
+SRCS = ft_printf.c \
+	ft_printf_handle.c \
+	ft_printf_handle_2.c
+
+OBJ = $(SRCS:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ) $(LIB)
+	cp $(LIB) $(NAME)
+	ar -rcs $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(LIB):
+	make -C libft
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re 

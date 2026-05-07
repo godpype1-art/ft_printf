@@ -6,7 +6,7 @@
 /*   By: falves-e <falves-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 12:12:03 by falves-e          #+#    #+#             */
-/*   Updated: 2026/05/05 15:22:34 by falves-e         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:02:07 by falves-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	handle_unsigned(va_list *args);
 int	handle_hex_lower(va_list *args);
 int	handle_hex_upper(va_list *args);
 int	handle_percent(void);
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: falves-e <falves-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 11:55:31 by falves-e          #+#    #+#             */
-/*   Updated: 2026/05/07 12:31:55 by falves-e         ###   ########.fr       */
+/*   Updated: 2026/05/13 15:32:28 by falves-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	ft_printf(const char *format, ...)
 			ft_putchar_fd(*format, 1);
 			count++;
 		}
-		format++;
+		if (*format)
+			format++;
 	}
 	va_end(args);
 	return (count);
@@ -59,8 +60,12 @@ int	ft_printf(const char *format, ...)
 /* int main(void)
 {
 	int i = 7574846;
-	printf("%d\n", printf("flag = %X\n", i));
-	printf("%d\n", ft_printf("flag = %X\n", i));
+	
+	printf("%", ft_printf("flag = %X\n", i));
+	printf("%", printf("flag = %X\n", i));
+
+	ft_printf("%");
+	printf("teste\n");
+	printf("ori %\n");
 	return 0;
-}
- */
+} */

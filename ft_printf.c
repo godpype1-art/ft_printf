@@ -6,7 +6,7 @@
 /*   By: falves-e <falves-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 11:55:31 by falves-e          #+#    #+#             */
-/*   Updated: 2026/05/13 15:32:28 by falves-e         ###   ########.fr       */
+/*   Updated: 2026/05/13 17:18:01 by falves-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		count;
 
+	if (!*format)
+		return (-1);
 	va_start(args, format);
 	count = 0;
 	while (*format)
